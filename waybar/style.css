@@ -1,13 +1,14 @@
-
+@define-color background #120f02;
+@define-color foreground #ebdbb2;
 * {
   background-color: @background;
   color: @foreground;
+  font-family: "DM Mono";
 
   border: none;
   border-radius: 0;
   min-height: 0;
-  font-family: 'JetBrainsMono Nerd Font';
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .modules-left {

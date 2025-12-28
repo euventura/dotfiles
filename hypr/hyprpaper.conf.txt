@@ -1,0 +1,5 @@
+wallpaper {
+    monitor = eDPI-1
+    path = ~/.dotfiles/bg/lichen.jpg
+    fit_mode = cover
+}
