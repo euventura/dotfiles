@@ -38,4 +38,13 @@ export ARCHFLAGS="-arch $(uname -m)"
 alias txt="gnome-text-editor"
 alias add-rss="/home/euventura/Dev/cloud-fair-rss/rss $1"
 
-neofetch
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+
+kneofetch

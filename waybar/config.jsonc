@@ -51,7 +51,8 @@
         "warning": 70,
         "critical": 90
     },
-    "format-icons": [""]
+    "format-icons": [""],
+        "on-click": "kitty -e btop"
   },
   "clock": {
     "format": "{:L%d.%m %a %H:%M} ",
@@ -68,7 +69,7 @@
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "spacing": 1,
-    "on-click": "alacritty -e nmtui-connect"
+    "on-click": "kitty -e nmtui-connect"
   },
   "battery": {
     "format": "{capacity}% {icon}",
