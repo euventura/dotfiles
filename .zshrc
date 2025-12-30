@@ -47,4 +47,4 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-kneofetch
+neofetch

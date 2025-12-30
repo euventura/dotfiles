@@ -16,34 +16,20 @@
     "battery"
   ],
   "hyprland/window": {
-    "format": "  {title}", 
+    "format": "{title}", 
   },
 
   "hyprland/workspaces": {
     "on-click": "activate",
-    "format": "{icon}",
-    "format-icons": {
-      "default": "",
-      "1": "1",
-      "2": "2",
-      "3": "3",
-      "4": "4",
-      "5": "5",
-
-      "active": "󱓻",
-    },
+    "format": "{name}",
     "persistent-workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      "5": [],
-
+      "HDMI-A-1": [1,2,3,4],
+      "eDP-1": [5,6],
     }
   },
 
   "cpu": {
-     "interval": 10,
+    "interval": 10,
     "format": "  {usage}% ",
     "tooltip": true,
     "tooltip-format": "{usage}% usage\nLoad: {load}",
