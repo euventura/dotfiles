@@ -1,84 +1,156 @@
-@define-color background #120f02;
-@define-color foreground #ebdbb2;
+@define-color base #191724;
+@define-color surface #1f1d2e;
+@define-color overlay #26233a;
+
+@define-color muted #6e6a86;
+@define-color subtle #908caa;
+@define-color text #e0def4;
+
+@define-color love #eb6f92;
+@define-color gold #f6c177;
+@define-color rose #ebbcba;
+@define-color pine #31748f;
+@define-color foam #9ccfd8;
+@define-color iris #c4a7e7;
+
+@define-color highlightLow #21202e;
+@define-color highlightMed #403d52;
+@define-color highlightHigh #524f67;
+
 * {
-  background-color: @background;
-  color: @foreground;
-  font-family: "DM Mono";
-
-  border: none;
-  border-radius: 0;
-  min-height: 0;
-  font-size: 15px;
+  font-family:
+    "DM Mono",
+    "monospace";
 }
 
-.modules-left {
-  margin-left: 8px;
+window#waybar {
+  color: @text;
+  background-color: @surface;
+
 }
 
-.modules-right {
-  margin-right: 8px;
+#workspaces button:hover {
+  background-color: @base;
+  color: @pine;
 }
 
-#workspaces button {
-  all: initial;
-  padding: 0 6px;
-  margin: 0 1.5px;
-  min-width: 9px;
+#workspaces button.focused {
+  background-color: #3c3836;
+  color: #b8bb26;
 }
 
-#workspaces button.empty {
-  opacity: 0.5;
+#workspaces button.active {
+  background-color: @overlay;
+  color: @pine;
+  font-weight: 900;
 }
 
-#cpu,
+#workspaces button.urgent {
+  background-color: #fbf1c7;
+  color: #fb4934;
+}
+
+#mode {
+  background-color: #64727d;
+  border-bottom: 3px solid #fbf1c7;
+}
+
+#clock,
 #battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
 #pulseaudio,
-#custom-omarchy,
-#custom-screenrecording-indicator,
-#custom-update {
-  min-width: 12px;
-  margin: 0 7.5px;
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#custom-poweroff,
+#custom-suspend,
+#mpd {
+  padding: 0 10px;
+  background-color: @surface;
+  color: @pine;
 }
 
-#tray {
-  margin-right: 16px;
+#window,
+#workspaces {
+  margin: 0 4px;
 }
 
-#bluetooth {
-  margin-right: 17px;
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left>widget:first-child>#workspaces {
+  margin-left: 0;
 }
 
-#network {
-  margin-right: 13px;
-}
-
-#custom-expand-icon {
-  margin-right: 18px;
-}
-
-tooltip {
-  padding: 2px;
-}
-
-#custom-update {
-  font-size: 10px;
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right>widget:last-child>#workspaces {
+  margin-right: 0;
 }
 
 #clock {
-  margin-left: 8.75px;
+  color: @gold;
 }
 
-.hidden {
-  opacity: 0;
+#battery {
+  color: @gold;
 }
 
-#custom-screenrecording-indicator {
-  min-width: 12px;
-  margin-left: 8.75px;
-  font-size: 10px;
+#battery.charging,
+#battery.plugged {
+  color: @muted;
 }
 
-#custom-screenrecording-indicator.active {
-  color: #a55555;
+@keyframes blink {
+  to {
+    background-color: @pine;
+    color: @surface;
+  }
 }
 
+#battery.critical:not(.charging) {
+  background-color: @pine;
+  color: @surface;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+label:focus {
+  background-color: @overlay;
+}
+
+
+#memory {
+  color: @gold;
+}
+
+#network {
+  color: @gold;
+}
+
+#network.disconnected {
+  background-color: #fbf1c7;
+  color: @pine;
+}
+
+#pulseaudio {
+  color: @gold;
+}
+
+#pulseaudio.muted {
+  background-color: #fbf1c7;
+  color: @rose;
+}
+
+#tray {}
+
+#tray>.needs-attention {
+  background-color: #fbf1c7;
+  color: #3c3836;
+}
