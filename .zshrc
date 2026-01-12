@@ -3,13 +3,12 @@
 
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="amuse"
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 
 HIST_STAMPS="dd.mm.yyyy"
 
 plugins=(
     git
-    zsh-autosuggestions
     zsh-syntax-highlighting
 )
 
@@ -18,7 +17,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 export LANG=pt_BR.UTF-8
 
-export EDITOR='nvim'
+export EDITOR='code'
 
 # Compilation flags
 export ARCHFLAGS="-arch $(uname -m)"
