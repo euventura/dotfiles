@@ -47,3 +47,9 @@ function y() {
 }
 
 neofetch
+export PATH="$HOME/.local/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/euventura/.lmstudio/bin"
+# End of LM Studio CLI section
+

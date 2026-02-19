@@ -4,12 +4,8 @@
   "position": "top",
   "spacing": 0,
   "height": 30,
-  "modules-left": [
-    "hyprland/workspaces"
-  ],
-  "modules-center": [
-    "hyprland/window"
-  ],
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["hyprland/window"],
   "modules-right": [
     "group/tray-expander",
     "keyboard-state",
@@ -18,40 +14,27 @@
     "network",
     "pulseaudio",
     "battery",
-    "clock"
+    "clock",
   ],
   "hyprland/window": {
-    "format": "{title} ({class})"
+    "format": "{title}",
   },
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "{name}",
     "persistent-workspaces": {
-      "HDMI-A-1": [
-        1,
-        2,
-        3,
-        4
-      ],
-      "eDP-1": [
-        5,
-        6
-      ],
-    }
+      "HDMI-A-1": [1, 2, 3, 4],
+      "eDP-1": [1, 2, 3, 4, 5, 6],
+    },
   },
   "clock": {
     "format": "{:L%H:%M} ",
     "tooltip": true,
-    "tooltip-format": "{:L%A, %d %B %Y}"
+    "tooltip-format": "{:L%A, %d %B %Y}",
+    "on-click": "gnome-calendar",
   },
   "network": {
-    "format-icons": [
-      "󰤯",
-      "󰤟",
-      "󰤢",
-      "󰤥",
-      "󰤨"
-    ],
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "format": "{icon}",
     "format-wifi": "{icon}",
     "format-ethernet": "󰀂",
@@ -61,13 +44,13 @@
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "spacing": 1,
-    "on-click": "kitty -e nmtui-connect"
+    "on-click": "kitty -e nmtui-connect",
   },
   "battery": {
     "states": {
       // "good": 95,
       "warning": 30,
-      "critical": 15
+      "critical": 15,
     },
     "format": "{capacity}% {icon}",
     "format-charging": "{capacity}% ",
@@ -75,13 +58,7 @@
     "format-alt": "{time} {icon}",
     // "format-good": "", // An empty format will hide the module
     // "format-full": "",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
-    ]
+    "format-icons": ["", "", "", "", ""],
   },
   "bluetooth": {
     "format": "   ",
@@ -89,7 +66,7 @@
     "format-connected": "  󰂱 ",
     "format-no-controller": "",
     "tooltip-format": "Devices connected: {num_connections}",
-    "on-click": "blueberry"
+    "on-click": "blueberry",
   },
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
@@ -100,31 +77,24 @@
     "format-source-muted": "",
     "format-icons": {
       "headphone": "",
-      "default": [
-        "",
-        "",
-        ""
-      ]
+      "default": ["", "", ""],
     },
-    "on-click": "pavucontrol -m"
+    "on-click": "pavucontrol -m",
   },
   "group/tray-expander": {
     "orientation": "inherit",
     "drawer": {
       "transition-duration": 600,
-      "children-class": "tray-group-item"
+      "children-class": "tray-group-item",
     },
-    "modules": [
-      "custom/expand-icon",
-      "tray"
-    ]
+    "modules": ["custom/expand-icon", "tray"],
   },
   "custom/expand-icon": {
     "format": "",
-    "tooltip": false
+    "tooltip": false,
   },
   "tray": {
     "icon-size": 12,
-    "spacing": 17
-  }
+    "spacing": 17,
+  },
 }
