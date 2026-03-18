@@ -1,0 +1,9 @@
+"custom/asus_control": {
+  "exec": "~/.config/waybar/modules/asus_control.sh",
+  "return-type": "json",
+  "interval": "once",
+  "format": "{}",
+  "tooltip": true,
+  "on-click": "~/.config/waybar/modules/asus_control_menu.sh",
+  "signal": 8
+},

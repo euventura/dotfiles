@@ -2,7 +2,7 @@
 
 # Get Volume
 get_volume() {
-	volume=$(pamixer --get-volume)
+	volume=$(amixer sget Master)
 	echo "$volume"
 }
 
@@ -27,12 +27,12 @@ notify_user() {
 
 # Increase Volume
 inc_volume() {
-	pamixer -i 5 && notify_user
+	amixer sset Master 5%+ && notify_user
 }
 
 # Decrease Volume
 dec_volume() {
-	pamixer -d 5 && notify_user
+	amixer sset Master 5%- && notify_user
 }
 
 # Toggle Mute

@@ -4,34 +4,34 @@
   "position": "top",
   "spacing": 0,
   "height": 30,
-  "modules-left": ["hyprland/workspaces"],
+  "modules-left": ["hyprland/workspaces", "memory", "cpu", "temperature"],
   "modules-center": ["hyprland/window"],
   "modules-right": [
     "group/tray-expander",
-    "keyboard-state",
-    "custom/keyboard-state",
+    "custom/asus_control",
     "bluetooth",
     "network",
     "pulseaudio",
     "battery",
     "clock",
+    "custom/power",
   ],
   "hyprland/window": {
-    "format": "{title}",
+    "format": "{class}",
   },
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "{name}",
     "persistent-workspaces": {
-      "HDMI-A-1": [1, 2, 3, 4],
-      "eDP-1": [1, 2, 3, 4, 5, 6],
+      "HDMI-A-1": [5, 6, 7, 8],
+      "eDP-2": [1, 2, 3, 4],
     },
   },
   "clock": {
     "format": "{:L%H:%M} ",
     "tooltip": true,
     "tooltip-format": "{:L%A, %d %B %Y}",
-    "on-click": "gnome-calendar",
+    "on-click": "merkuro-calendar",
   },
   "network": {
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
@@ -48,7 +48,7 @@
   },
   "battery": {
     "states": {
-      // "good": 95,
+      "good": 95,
       "warning": 30,
       "critical": 15,
     },
@@ -79,7 +79,7 @@
       "headphone": "",
       "default": ["", "", ""],
     },
-    "on-click": "pavucontrol -m",
+    "on-click": "alsamixer",
   },
   "group/tray-expander": {
     "orientation": "inherit",
@@ -96,5 +96,34 @@
   "tray": {
     "icon-size": 12,
     "spacing": 17,
+  },
+  "custom/asus_control": {
+    "exec": "~/.config/waybar/modules/asus_controls.sh",
+    "return-type": "json",
+    "interval": "once",
+    "format": "{}",
+    "tooltip": true,
+    "on-click": "~/.config/waybar/modules/asus_control_menu.sh",
+    "signal": 8,
+  },
+  "memory": {
+    "format": "{}% ",
+  },
+  "cpu": {
+    "format": "{usage}% ",
+    "tooltip": false,
+  },
+  "custom/power": {
+    "format": "⏻ ",
+    "tooltip": false,
+    "on-click": "rofi -show p -modi p:rofi-power-menu",
+  },
+  "temperature": {
+    "thermal-zone": 1, // Optional:, often found in /sys/class/thermal/
+    "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input", // Run 'ls /sys/class/hwmon/' to find yours
+    "critical-threshold": 80, // Celsius
+    "format-critical": "{temperatureC}°C {icon}",
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["", "", ""],
   },
 }
