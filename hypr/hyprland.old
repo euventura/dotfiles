@@ -1,7 +1,7 @@
 ################
 ### MONITORS ###
 ################
-
+hl.config({
 monitor = HDMI-A-1, 1920x1080@60, 0x0, 1
 monitor = eDP-2, 2560x1600@240, 1920x0, 1.6
 
@@ -63,9 +63,19 @@ xwayland {
     use_nearest_neighbor = true
 }
 
-dwindle {
-    pseudotile = true # Master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
-    preserve_split = true # You probably want this
+
+dwindle = {
+    force_split                  = 0,
+    preserve_split               = false,
+    smart_split                  = false,
+    smart_resizing               = true,
+    permanent_direction_override = false,
+    special_scale_factor         = 1,
+    split_width_multiplier       = 1.0,
+    use_active_for_splits        = true,
+    default_split_ratio          = 1.0,
+    split_bias                   = 0,
+    precise_mouse_move           = false,
 }
 
 master {
@@ -137,3 +147,4 @@ windowrule = match:class (org.pulseaudio.pavucontrol), float true focus_on_activ
 windowrule = match:class (blueberry.py), float true focus_on_activate
 
 # windowrule = match:class org.gnome.Calculator, float 1 center 1
+)}

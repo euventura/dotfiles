@@ -14,7 +14,7 @@ $highlightLow   = 0xff21202e
 $highlightMed   = 0xff403d52
 $highlightHigh  = 0xff524f67
 
-general {
+general = {
     gaps_in = 3
     gaps_out = 3
     border_size = 1

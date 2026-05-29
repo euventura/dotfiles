@@ -20,12 +20,12 @@
     "format": "{class}",
   },
   "hyprland/workspaces": {
-    "on-click": "activate",
-    "format": "{name}",
+    "on-click": "hyprctl dispatch workspace,id:{id}",
+    "format": "{id}",
     "persistent-workspaces": {
       "HDMI-A-1": [5, 6, 7, 8],
-      "eDP-2": [1, 2, 3, 4],
-    },
+      "eDP-2": [1, 2, 3, 4]
+    }
   },
   "clock": {
     "format": "{:L%H:%M} ",
@@ -44,7 +44,7 @@
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "spacing": 1,
-    "on-click": "kitty -e nmtui-connect",
+    "on-click": "kitty -e wlctl",
   },
   "battery": {
     "states": {
@@ -79,7 +79,7 @@
       "headphone": "",
       "default": ["", "", ""],
     },
-    "on-click": "alsamixer",
+    "on-click": "kitty -e wiremix",
   },
   "group/tray-expander": {
     "orientation": "inherit",
