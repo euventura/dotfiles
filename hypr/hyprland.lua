@@ -8,8 +8,8 @@
 ------------------
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 
-hl.monitor({ output = "HDMI-A-1", mode = "1920x1080@60",  position = "0x0",    scale = 1 })
-hl.monitor({ output = "eDP-2",    mode = "2560x1600@240", position = "1920x0", scale = 1.6 })
+hl.monitor({ output = "HDMI-A-3", mode = "1920x1080@60",  position = "0x0",    scale = 1 })
+hl.monitor({ output = "eDP-1",    mode = "2560x1600@240", position = "1920x0", scale = 1.6 })
 
 -- hl.env("HYPRCURSOR_THEME", "nordic")
 -- hl.env("HYPRCURSOR_SIZE", "20")
@@ -21,7 +21,7 @@ hl.monitor({ output = "eDP-2",    mode = "2560x1600@240", position = "1920x0", s
 -- hl.exec_cmd spawns async processes, so trailing "&" is no longer needed.
 
 hl.on("hyprland.start", function()
-    hl.exec_cmd("waybar")
+    hl.exec_cmd("qs")  -- era "waybar" (migrado p/ Quickshell)
     hl.exec_cmd("wl-paste --watch cliphist store")
     hl.exec_cmd("nm-applet")
     hl.exec_cmd("dunst")
@@ -128,15 +128,15 @@ require("keybind")
 -- See https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 --     https://wiki.hypr.land/Configuring/Basics/Window-Rules/
 
-hl.workspace_rule({ workspace = "1", monitor = "eDP-2" })
-hl.workspace_rule({ workspace = "2", monitor = "eDP-2" })
-hl.workspace_rule({ workspace = "3", monitor = "eDP-2" })
-hl.workspace_rule({ workspace = "4", monitor = "eDP-2" })
+hl.workspace_rule({ workspace = "1", monitor = "eDP-1" })
+hl.workspace_rule({ workspace = "2", monitor = "eDP-1" })
+hl.workspace_rule({ workspace = "3", monitor = "eDP-1" })
+hl.workspace_rule({ workspace = "4", monitor = "eDP-1" })
 
-hl.workspace_rule({ workspace = "5", monitor = "HDMI-A-1" })
-hl.workspace_rule({ workspace = "6", monitor = "HDMI-A-1" })
-hl.workspace_rule({ workspace = "7", monitor = "HDMI-A-1" })
-hl.workspace_rule({ workspace = "8", monitor = "HDMI-A-1" })
+hl.workspace_rule({ workspace = "5", monitor = "HDMI-A-3" })
+hl.workspace_rule({ workspace = "6", monitor = "HDMI-A-3" })
+hl.workspace_rule({ workspace = "7", monitor = "HDMI-A-3" })
+hl.workspace_rule({ workspace = "8", monitor = "HDMI-A-3" })
 
 -- hl.window_rule({
 --     match = { class = "^$", title = "^$", xwayland = true, float = true, fullscreen = false, pin = false },
@@ -146,7 +146,7 @@ hl.workspace_rule({ workspace = "8", monitor = "HDMI-A-1" })
 hl.window_rule({ match = { class = "Godot$" },         tile = true, focus_on_activate = true })
 hl.window_rule({ match = { class = "(.*)(DEBUG)" },    tile = true, focus_on_activate = true })
 hl.window_rule({ match = { title = "(.*)(DEBUG)" },    tile = true, focus_on_activate = true })
-hl.window_rule({ match = { class = "steam_app_(.*)" }, fullscreen = true, workspace = "4", focus_on_activate = true })
+hl.window_rule({ match = { class = "steam_app_(.*)" }, fullscreen = true, workspace = "6", focus_on_activate = true })
 hl.window_rule({ match = { class = "org.gnome.Calculator" },       float = true, focus_on_activate = true })
 hl.window_rule({ match = { class = "org.pulseaudio.pavucontrol" }, float = true, focus_on_activate = true })
 hl.window_rule({ match = { class = "blueberry.py" },               float = true, focus_on_activate = true })

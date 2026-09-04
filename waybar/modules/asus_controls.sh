@@ -9,7 +9,7 @@ case "$graphics_mode" in
     "Integrated")
         graphics=" 󰢮 iGPU "
         ;;
-    "Dedicated")
+    "AsusMuxDgpu")
         graphics=" 󰢹 dGPU "
         ;;
     *)

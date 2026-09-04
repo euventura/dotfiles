@@ -7,7 +7,7 @@ local mod = "SUPER"
 -- Programs (was $terminal / $fileManager / $menu / $volume / $bright)
 local terminal    = "ghostty"
 local fileManager = "nautilus"
-local menu        = "rofi -show run"
+local menu        = "qs ipc call launcher toggle" -- era "rofi -show run" (migrado p/ Quickshell)
 local volume      = os.getenv("HOME") .. "/.config/hypr/scripts/volume.sh"
 local bright      = os.getenv("HOME") .. "/.config/hypr/scripts/bright.sh"
 
@@ -106,7 +106,8 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 
-hl.bind(mod .. " + V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"), { locked = true })
+-- era: cliphist list | rofi -dmenu | cliphist decode | wl-copy  (migrado p/ Quickshell)
+hl.bind(mod .. " + V", hl.dsp.exec_cmd("qs ipc call clipboard toggle"), { locked = true })
 
 ----------------------
 ---- VOLUME / AUDIO ----
